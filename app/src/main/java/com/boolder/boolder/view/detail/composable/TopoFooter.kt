@@ -31,8 +31,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
@@ -45,6 +45,7 @@ import com.boolder.boolder.domain.model.Steepness
 import com.boolder.boolder.utils.getLanguage
 import com.boolder.boolder.utils.previewgenerator.dummyProblem
 import com.boolder.boolder.view.compose.BoolderTheme
+import com.boolder.boolder.view.compose.GlossaryText
 import com.boolder.boolder.view.compose.BoolderYellow
 
 @Composable
@@ -95,14 +96,12 @@ private fun TopoFooterTitleRow(
     Row(
         modifier = Modifier.padding(horizontal = 8.dp)
     ) {
-        Text(
+        // French climbing terms in the name can be tapped for a translation
+        GlossaryText(
             modifier = Modifier.weight(1f),
             text = problemName,
-            color = MaterialTheme.colorScheme.onSurface,
-            fontSize = 26.sp,
-            fontWeight = FontWeight.Bold,
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis
+            style = TextStyle(fontSize = 26.sp, fontWeight = FontWeight.Bold),
+            maxLines = 1
         )
 
         Text(
